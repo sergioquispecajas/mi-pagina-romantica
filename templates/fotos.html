@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Nuestras fotos 💞</title>
+</head>
+<body>
+    <h1>Un rincón lleno de amor ❤️ 💞</h1>
+    <nav>
+        <a href="/">Inicio</a> |
+        <a href="/fotos">Fotos</a> |
+        <a href="/frases">Frases</a>
+    </nav>
+
+    <div class="galeria">
+        <img src="{{ url_for('static', filename='imagenes/foto01.jpg') }}" width="250">
+        <img src="{{ url_for('static', filename='imagenes/foto02.jpg') }}" width="250">
+        <img src="{{ url_for('static', filename='imagenes/foto03.jpg') }}" width="250">
+    </div>
+</body>
+</html>
+
