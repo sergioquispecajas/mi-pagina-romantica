@@ -1,23 +1,69 @@
-html
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-    <title>Para mi corazoncito 💖</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Para ti ❤️</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='estilo.css') }}">
 </head>
+
 <body>
 
-    <h1>Bienvenida, mi vida 💕</h1>
+    <main class="portada">
 
-    <nav>
-        <a href="/">Inicio</a> |
-        <a href="/fotos">Fotos</a> |
-        <a href="/frases">Frases</a>
-    </nav>
+        <div class="corazones">
+            <span>❤️</span>
+            <span>💕</span>
+            <span>💗</span>
+            <span>💖</span>
+            <span>❤️</span>
+        </div>
 
-    <p>Esta página la hice solo para ti 🌹</p>
+        <div class="contenido">
 
+            <p class="pequeno">✨ Tengo algo preparado para ti ✨</p>
+
+            <h1>Para alguien muy especial ❤️</h1>
+
+            <p class="mensaje">
+                Aunque estés lejos, hay personas que logran
+                sentirse muy cerca del corazón.
+            </p>
+
+            <div class="botones-portada">
+
+                <a href="/fotos" class="boton-sorpresa">
+                    📸 Un espacio dedicado a ti
+                </a>
+
+                <a href="/carta" class="boton-sorpresa">
+                    💌 Abrir mi sorpresa
+                </a>
+
+                 <a href="/contador" class="boton-sorpresa">
+                     ⏳ Nuestro tiempo
+                 </a>
+                 
+                 <a href="/musica" class="boton-sorpresa">
+                     🎵 Nuestra canción
+                 </a>
+
+                 <a href="/detalles" class="boton-sorpresa">
+                    💌 Pequeños detalles
+                 </a>
+        
+                <a href="/final" class="boton-sorpresa">
+                    ✨ Nuestra sorpresa final
+                 </a>
+            </div>
+
+        </div>
+
+    </main>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
 
 </body>
 </html>
-
-

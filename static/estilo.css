@@ -1,12 +1,1470 @@
-.galeria {
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Georgia, serif;
+    overflow: hidden;
+}
+
+.portada {
+    min-height: 100vh;
     display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
     justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    background: linear-gradient(
+        135deg,
+        #160b18,
+        #3b102f,
+        #681b4d
+    );
+
+    color: white;
+    position: relative;
 }
 
-.galeria img {
+.contenido {
+    position: relative;
+    z-index: 2;
+    padding: 30px;
+    max-width: 700px;
+
+    animation: aparecer 2s ease;
+}
+
+.pequeno {
+    font-size: 18px;
+    margin-bottom: 25px;
+    opacity: 0.9;
+}
+
+h1 {
+    font-size: 55px;
+    margin-bottom: 25px;
+}
+
+.mensaje {
+    font-size: 21px;
+    line-height: 1.7;
+    margin-bottom: 35px;
+}
+
+button {
+    border: none;
+    padding: 16px 32px;
+    border-radius: 30px;
+
+    background: #ffffff;
+    color: #8b245f;
+
+    font-size: 17px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.08);
+}
+
+.corazones span {
+    position: absolute;
+    bottom: -50px;
+    animation: flotar 8s linear infinite;
+    font-size: 25px;
+}
+
+.corazones span:nth-child(1) {
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.corazones span:nth-child(2) {
+    left: 30%;
+    animation-delay: 2s;
+}
+
+.corazones span:nth-child(3) {
+    left: 50%;
+    animation-delay: 4s;
+}
+
+.corazones span:nth-child(4) {
+    left: 70%;
+    animation-delay: 1s;
+}
+
+.corazones span:nth-child(5) {
+    left: 90%;
+    animation-delay: 3s;
+}
+
+@keyframes flotar {
+    0% {
+        transform: translateY(0);
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-110vh);
+        opacity: 0;
+    }
+}
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 600px) {
+    h1 {
+        font-size: 38px;
+    }
+
+    .mensaje {
+        font-size: 18px;
+    }
+
+    .pequeno {
+        font-size: 15px;
+    }
+}
+
+/* ============================= */
+/*        GALERÍA DE FOTOS       */
+/* ============================= */
+
+.pagina-fotos {
+    min-height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    background: linear-gradient(
+        135deg,
+        #160b18,
+        #3b102f,
+        #681b4d
+    );
+
+    color: white;
+}
+
+.galeria-contenedor {
+    position: relative;
+    z-index: 2;
+
+    width: 90%;
+    max-width: 1100px;
+
+    margin: auto;
+    padding: 40px 20px 70px;
+
+    text-align: center;
+
+    animation: aparecer 1.5s ease;
+}
+
+.volver {
+    position: fixed;
+    top: 25px;
+    left: 25px;
+
+    padding: 10px 20px;
+
+    border-radius: 25px;
+
+    background: rgba(255, 255, 255, 0.15);
+    color: white;
+
+    text-decoration: none;
+    font-weight: bold;
+
+    backdrop-filter: blur(10px);
+
+    transition: 0.3s;
+
+    z-index: 10;
+}
+
+.volver:hover {
+    background: white;
+    color: #8b245f;
+    transform: scale(1.05);
+}
+
+.subtitulo-fotos {
+    margin-top: 20px;
+    margin-bottom: 12px;
+
+    font-size: 18px;
+    opacity: 0.9;
+}
+
+.galeria-contenedor h1 {
+    font-size: 48px;
+    margin-bottom: 15px;
+}
+
+.texto-fotos {
+    max-width: 650px;
+    margin: 0 auto 40px;
+
+    font-size: 18px;
+    line-height: 1.6;
+
+    opacity: 0.9;
+}
+
+.galeria {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 25px;
+
+    width: 100%;
+}
+
+.foto-card {
+    background: rgba(255, 255, 255, 0.10);
+
+    border: 1px solid rgba(255, 255, 255, 0.18);
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+    backdrop-filter: blur(10px);
+
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+
+    transition: 0.4s;
+}
+
+.foto-card:hover {
+    transform: translateY(-10px) scale(1.02);
+}
+
+.foto-card img {
+    width: 100%;
+    height: 300px;
+
+    object-fit: cover;
+
+    display: block;
+
+    transition: 0.5s;
+}
+
+.foto-card:hover img {
+    transform: scale(1.08);
+}
+
+.foto-texto {
+    padding: 20px;
+}
+
+.foto-texto h2 {
+    font-size: 21px;
+    margin-bottom: 10px;
+}
+
+.foto-texto p {
+    font-size: 15px;
+    line-height: 1.5;
+    opacity: 0.85;
+}
+
+/* Corazones del fondo */
+
+.fondo-corazones {
+    position: fixed;
+
+    width: 100%;
+    height: 100%;
+
+    top: 0;
+    left: 0;
+
+    pointer-events: none;
+
+    overflow: hidden;
+}
+
+.fondo-corazones span {
+    position: absolute;
+
+    bottom: -50px;
+
+    font-size: 25px;
+
+    animation: flotar 9s linear infinite;
+
+    opacity: 0;
+}
+
+.fondo-corazones span:nth-child(1) {
+    left: 8%;
+    animation-delay: 0s;
+}
+
+.fondo-corazones span:nth-child(2) {
+    left: 25%;
+    animation-delay: 2s;
+}
+
+.fondo-corazones span:nth-child(3) {
+    left: 43%;
+    animation-delay: 4s;
+}
+
+.fondo-corazones span:nth-child(4) {
+    left: 60%;
+    animation-delay: 1s;
+}
+
+.fondo-corazones span:nth-child(5) {
+    left: 78%;
+    animation-delay: 3s;
+}
+
+.fondo-corazones span:nth-child(6) {
+    left: 92%;
+    animation-delay: 5s;
+}
+
+
+/* Adaptación para celular */
+
+@media (max-width: 800px) {
+
+    .galeria {
+        grid-template-columns: 1fr 1fr;
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .galeria {
+        grid-template-columns: 1fr;
+    }
+
+    .galeria-contenedor {
+        padding-top: 80px;
+    }
+
+    .galeria-contenedor h1 {
+        font-size: 35px;
+    }
+
+    .texto-fotos {
+        font-size: 16px;
+    }
+
+    .foto-card img {
+        height: 280px;
+    }
+
+    .volver {
+        top: 15px;
+        left: 15px;
+    }
+
+}
+
+/* ============================= */
+/*       CARTA ROMÁNTICA         */
+/* ============================= */
+
+.pagina-carta {
+    min-height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    background: linear-gradient(
+        135deg,
+        #160b18,
+        #3b102f,
+        #681b4d
+    );
+
+    color: white;
+}
+
+.carta-contenedor {
+    position: relative;
+    z-index: 2;
+
+    width: 90%;
+    max-width: 900px;
+
+    margin: auto;
+
+    padding: 70px 20px;
+
+    text-align: center;
+
+    animation: aparecer 1.5s ease;
+}
+
+.carta-contenedor h1 {
+    font-size: 48px;
+    margin-bottom: 15px;
+}
+
+.subtitulo-carta {
+    font-size: 18px;
+    margin-bottom: 10px;
+    opacity: 0.9;
+}
+
+
+/* SOBRE */
+
+.sobre {
+    position: relative;
+
+    width: 100%;
+    max-width: 650px;
+
+    min-height: 420px;
+
+    margin: 50px auto 30px;
+
+    background: #f8e8ee;
+
+    border-radius: 15px;
+
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.4);
+
+    overflow: hidden;
+
+    transition: 1s;
+}
+
+
+/* PARTE DE LA CARTA */
+
+.carta-interior {
+    position: relative;
+
+    z-index: 2;
+
+    width: 90%;
+
+    margin: 30px auto;
+
+    padding: 30px;
+
+    background: #fffafa;
+
+    color: #4a2335;
+
     border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+
+    text-align: left;
+
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+
+    opacity: 0;
+
+    transform: translateY(100px);
+
+    transition: 1s;
 }
 
+.carta-interior h2 {
+    text-align: center;
+
+    font-size: 30px;
+
+    margin-bottom: 25px;
+}
+
+.carta-interior p {
+    font-family: Georgia, serif;
+
+    font-size: 17px;
+
+    line-height: 1.8;
+
+    margin-bottom: 18px;
+}
+
+.firma {
+    text-align: right;
+
+    margin-top: 30px;
+
+    font-style: italic;
+}
+
+
+/* TAPA DEL SOBRE */
+
+.sobre-tapa {
+    position: absolute;
+
+    z-index: 5;
+
+    top: 0;
+    left: 0;
+
+    width: 0;
+    height: 0;
+
+    border-left: 325px solid transparent;
+    border-right: 325px solid transparent;
+
+    border-top: 220px solid #d889a7;
+
+    transform-origin: top;
+
+    transition: 1s;
+}
+
+
+/* CARTA ABIERTA */
+
+.sobre.abierta .sobre-tapa {
+    transform: rotateX(180deg);
+
+    z-index: 1;
+}
+
+.sobre.abierta .carta-interior {
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+
+/* BOTÓN */
+
+.boton-carta {
+    margin-top: 20px;
+
+    border: none;
+
+    padding: 15px 30px;
+
+    border-radius: 30px;
+
+    background: white;
+
+    color: #8b245f;
+
+    font-size: 17px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.boton-carta:hover {
+    transform: scale(1.08);
+
+    box-shadow:
+        0 8px 25px rgba(255, 255, 255, 0.25);
+}
+
+
+/* CELULAR */
+
+@media (max-width: 700px) {
+
+    .carta-contenedor {
+        padding-top: 90px;
+    }
+
+    .carta-contenedor h1 {
+        font-size: 35px;
+    }
+
+    .sobre {
+        min-height: 500px;
+    }
+
+    .sobre-tapa {
+        border-left-width: 45vw;
+        border-right-width: 45vw;
+        border-top-width: 200px;
+    }
+
+    .carta-interior {
+        padding: 20px;
+    }
+
+    .carta-interior p {
+        font-size: 15px;
+    }
+
+}
+
+/* ============================= */
+/*      BOTÓN DE LA SORPRESA     */
+/* ============================= */
+
+.boton-sorpresa {
+    display: inline-block;
+
+    border: none;
+    padding: 16px 32px;
+    border-radius: 30px;
+
+    background: white;
+    color: #8b245f;
+
+    font-size: 17px;
+    font-weight: bold;
+
+    text-decoration: none;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.boton-sorpresa:hover {
+    transform: scale(1.08);
+
+    box-shadow:
+        0 8px 25px rgba(255, 255, 255, 0.25);
+}
+/* ============================= */
+/*     BOTONES DE LA PORTADA     */
+/* ============================= */
+
+.botones-portada {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.boton-sorpresa {
+    display: inline-block;
+
+    padding: 16px 28px;
+    border-radius: 30px;
+
+    background: white;
+    color: #8b245f;
+
+    font-size: 17px;
+    font-weight: bold;
+
+    text-decoration: none;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.boton-sorpresa:hover {
+    transform: scale(1.08);
+
+    box-shadow:
+        0 8px 25px rgba(255, 255, 255, 0.25);
+}
+
+@media (max-width: 600px) {
+
+    .botones-portada {
+        flex-direction: column;
+    }
+
+    .boton-sorpresa {
+        width: 220px;
+    }
+
+}
+
+/* ============================= */
+/*          CONTADOR ❤️           */
+/* ============================= */
+
+.pagina-contador {
+    min-height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    background: linear-gradient(
+        135deg,
+        #160b18,
+        #3b102f,
+        #681b4d
+    );
+
+    color: white;
+}
+
+.contador-contenedor {
+    position: relative;
+    z-index: 2;
+
+    width: 90%;
+    max-width: 1000px;
+
+    margin: auto;
+
+    padding: 90px 20px 70px;
+
+    text-align: center;
+
+    animation: aparecer 1.5s ease;
+}
+
+.subtitulo-contador {
+    font-size: 18px;
+
+    margin-bottom: 12px;
+
+    opacity: 0.9;
+}
+
+.contador-contenedor h1 {
+    font-size: 50px;
+
+    margin-bottom: 20px;
+}
+
+.texto-contador {
+    max-width: 700px;
+
+    margin: 0 auto 45px;
+
+    font-size: 20px;
+
+    line-height: 1.6;
+
+    opacity: 0.9;
+}
+
+
+/* CONTADOR */
+
+.contador {
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 15px;
+
+    flex-wrap: wrap;
+
+    margin: 30px auto 40px;
+}
+
+.tiempo {
+    min-width: 150px;
+
+    padding: 25px 20px;
+
+    background: rgba(255, 255, 255, 0.10);
+
+    border: 1px solid rgba(255, 255, 255, 0.18);
+
+    border-radius: 20px;
+
+    backdrop-filter: blur(10px);
+
+    box-shadow:
+        0 15px 35px rgba(0, 0, 0, 0.25);
+
+    transition: 0.3s;
+}
+
+.tiempo:hover {
+    transform: translateY(-8px) scale(1.04);
+
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.tiempo span {
+    display: block;
+
+    font-size: 48px;
+
+    font-weight: bold;
+
+    margin-bottom: 8px;
+}
+
+.tiempo small {
+    font-size: 16px;
+
+    opacity: 0.85;
+}
+
+.separador {
+    font-size: 40px;
+
+    font-weight: bold;
+
+    opacity: 0.8;
+}
+
+.frase-contador {
+    margin-top: 35px;
+
+    font-size: 19px;
+
+    line-height: 1.6;
+
+    opacity: 0.9;
+}
+
+
+/* CONTADOR EN CELULAR */
+
+@media (max-width: 700px) {
+
+    .contador-contenedor {
+        padding-top: 90px;
+    }
+
+    .contador-contenedor h1 {
+        font-size: 36px;
+    }
+
+    .texto-contador {
+        font-size: 17px;
+    }
+
+    .contador {
+        gap: 10px;
+    }
+
+    .tiempo {
+        min-width: 130px;
+
+        padding: 20px 15px;
+    }
+
+    .tiempo span {
+        font-size: 38px;
+    }
+
+    .separador {
+        display: none;
+    }
+
+}
+
+@media (max-width: 450px) {
+
+    .tiempo {
+        width: 45%;
+        min-width: 0;
+    }
+
+    .tiempo span {
+        font-size: 32px;
+    }
+
+}
+
+/* ============================= */
+/*           MÚSICA 🎵            */
+/* ============================= */
+
+.pagina-musica {
+    min-height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    background: linear-gradient(
+        135deg,
+        #160b18,
+        #3b102f,
+        #681b4d
+    );
+
+    color: white;
+}
+
+.musica-contenedor {
+    position: relative;
+    z-index: 2;
+
+    width: 90%;
+    max-width: 900px;
+
+    margin: auto;
+
+    padding: 90px 20px 70px;
+
+    text-align: center;
+
+    animation: aparecer 1.5s ease;
+}
+
+.subtitulo-musica {
+    font-size: 18px;
+
+    margin-bottom: 12px;
+
+    opacity: 0.9;
+}
+
+.musica-contenedor h1 {
+    font-size: 50px;
+
+    margin-bottom: 20px;
+}
+
+.texto-musica {
+    max-width: 650px;
+
+    margin: 0 auto 40px;
+
+    font-size: 19px;
+
+    line-height: 1.6;
+
+    opacity: 0.9;
+}
+
+
+/* REPRODUCTOR */
+
+.reproductor-musica {
+    width: 100%;
+    max-width: 750px;
+
+    margin: 0 auto 30px;
+
+    padding: 10px;
+
+    background: rgba(255, 255, 255, 0.10);
+
+    border: 1px solid rgba(255, 255, 255, 0.18);
+
+    border-radius: 20px;
+
+    backdrop-filter: blur(10px);
+
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.35);
+
+    overflow: hidden;
+}
+
+.reproductor-musica iframe {
+    display: block;
+
+    width: 100%;
+
+    height: 420px;
+
+    border: none;
+
+    border-radius: 14px;
+}
+
+
+/* TÍTULO DE LA CANCIÓN */
+
+.musica-contenedor h2 {
+    font-size: 30px;
+
+    margin-top: 25px;
+
+    margin-bottom: 8px;
+}
+
+.artista-musica {
+    font-size: 18px;
+
+    opacity: 0.85;
+
+    margin-bottom: 25px;
+}
+
+.frase-musica {
+    max-width: 600px;
+
+    margin: 20px auto 0;
+
+    font-size: 18px;
+
+    line-height: 1.6;
+
+    font-style: italic;
+
+    opacity: 0.9;
+}
+
+
+/* CELULAR */
+
+@media (max-width: 700px) {
+
+    .musica-contenedor {
+        padding-top: 90px;
+    }
+
+    .musica-contenedor h1 {
+        font-size: 36px;
+    }
+
+    .texto-musica {
+        font-size: 17px;
+    }
+
+    .reproductor-musica {
+        padding: 7px;
+    }
+
+    .reproductor-musica iframe {
+        height: 250px;
+    }
+
+    .musica-contenedor h2 {
+        font-size: 25px;
+    }
+
+}
+
+/* ============================= */
+/*       PANTALLA FINAL ❤️       */
+/* ============================= */
+
+.pagina-final {
+    min-height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background:
+        radial-gradient(circle at 50% 20%, rgba(255, 105, 180, 0.18), transparent 35%),
+        linear-gradient(135deg, #100711, #2b0b25, #57143f);
+    color: white;
+}
+
+.final-contenedor {
+    position: relative;
+    z-index: 2;
+    min-height: 100vh;
+    width: 90%;
+    max-width: 850px;
+    margin: auto;
+    padding: 90px 20px 80px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    animation: aparecer 2s ease;
+}
+
+.final-pequeno {
+    font-size: 18px;
+    margin-bottom: 20px;
+    opacity: 0.9;
+}
+
+.final-contenedor h1 {
+    font-size: 52px;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    text-shadow: 0 0 25px rgba(255, 255, 255, 0.25);
+}
+
+.linea-corazon {
+    font-size: 20px;
+    margin-bottom: 35px;
+    opacity: 0.8;
+    letter-spacing: 3px;
+}
+
+.final-mensaje {
+    max-width: 700px;
+    font-size: 20px;
+    line-height: 1.8;
+    margin-bottom: 18px;
+    opacity: 0.92;
+}
+
+.final-frase {
+    margin: 30px 0 35px;
+    padding: 25px 30px;
+    max-width: 650px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.10);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+    font-size: 21px;
+    font-style: italic;
+}
+
+.boton-final {
+    border: none;
+    padding: 17px 35px;
+    border-radius: 35px;
+    background: white;
+    color: #8b245f;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    transition: 0.4s;
+}
+
+.boton-final:hover {
+    transform: scale(1.08);
+    box-shadow: 0 15px 40px rgba(255, 255, 255, 0.2);
+}
+
+/* Mensaje que aparece al pulsar el botón */
+
+.mensaje-oculto {
+    display: none;
+    max-width: 650px;
+    margin-top: 35px;
+    padding: 35px 30px;
+    border-radius: 25px;
+    background: rgba(255, 255, 255, 0.10);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+}
+
+.mensaje-oculto.mostrar {
+    display: block;
+    animation: aparecer 1.5s ease;
+}
+
+.mensaje-oculto p {
+    font-size: 18px;
+    line-height: 1.7;
+    margin-bottom: 18px;
+    opacity: 0.9;
+}
+
+.mensaje-oculto h2 {
+    font-size: 27px;
+    line-height: 1.4;
+    margin-bottom: 20px;
+}
+
+.corazon-grande {
+    font-size: 70px;
+    margin: 25px 0;
+    animation: latir 1.5s ease-in-out infinite;
+}
+
+.final-te-quiero {
+    font-size: 22px !important;
+    font-weight: bold;
+}
+
+/* Corazones flotando */
+
+.fondo-final {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.fondo-final span {
+    position: absolute;
+    bottom: -60px;
+    font-size: 25px;
+    opacity: 0;
+    animation: flotar-final 10s linear infinite;
+}
+
+.fondo-final span:nth-child(1) {
+    left: 8%;
+    animation-delay: 0s;
+}
+
+.fondo-final span:nth-child(2) {
+    left: 22%;
+    animation-delay: 2s;
+}
+
+.fondo-final span:nth-child(3) {
+    left: 38%;
+    animation-delay: 4s;
+}
+
+.fondo-final span:nth-child(4) {
+    left: 55%;
+    animation-delay: 1s;
+}
+
+.fondo-final span:nth-child(5) {
+    left: 70%;
+    animation-delay: 5s;
+}
+
+.fondo-final span:nth-child(6) {
+    left: 84%;
+    animation-delay: 3s;
+}
+
+.fondo-final span:nth-child(7) {
+    left: 94%;
+    animation-delay: 6s;
+}
+
+@keyframes flotar-final {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+
+    15% {
+        opacity: 0.9;
+    }
+
+    100% {
+        transform: translateY(-115vh) rotate(25deg);
+        opacity: 0;
+    }
+}
+
+@keyframes latir {
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.15);
+    }
+}
+
+/* Celulares */
+
+@media (max-width: 600px) {
+
+    .final-contenedor {
+        padding: 80px 15px 60px;
+    }
+
+    .final-pequeno {
+        font-size: 15px;
+    }
+
+    .final-contenedor h1 {
+        font-size: 36px;
+    }
+
+    .linea-corazon {
+        font-size: 14px;
+        letter-spacing: 1px;
+    }
+
+    .final-mensaje {
+        font-size: 17px;
+        line-height: 1.7;
+    }
+
+    .final-frase {
+        font-size: 18px;
+        padding: 20px;
+    }
+
+    .mensaje-oculto {
+        padding: 25px 20px;
+    }
+
+    .mensaje-oculto h2 {
+        font-size: 23px;
+    }
+
+    .corazon-grande {
+        font-size: 60px;
+    }
+}
+
+/* ============================= */
+/*     PEQUEÑOS DETALLES 💌      */
+/* ============================= */
+
+.pagina-detalles {
+    min-height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background: linear-gradient(135deg, #160b18, #3b102f, #681b4d);
+    color: white;
+}
+
+.detalles-contenedor {
+    position: relative;
+    z-index: 2;
+    width: 90%;
+    max-width: 1000px;
+    margin: auto;
+    padding: 90px 20px 80px;
+    text-align: center;
+    animation: aparecer 1.5s ease;
+}
+
+.subtitulo-detalles {
+    font-size: 18px;
+    margin-bottom: 12px;
+    opacity: 0.9;
+}
+
+.detalles-contenedor h1 {
+    font-size: 50px;
+    margin-bottom: 20px;
+}
+
+.texto-detalles {
+    max-width: 700px;
+    margin: 0 auto 45px;
+    font-size: 19px;
+    line-height: 1.7;
+    opacity: 0.9;
+}
+
+.detalles-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    max-width: 900px;
+    margin: auto;
+}
+
+.detalle-card {
+    padding: 30px 25px;
+    min-height: 230px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background: rgba(255, 255, 255, 0.10);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 22px;
+
+    backdrop-filter: blur(10px);
+
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+
+    transition: 0.4s;
+}
+
+.detalle-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.detalle-icono {
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+
+.detalle-card h2 {
+    font-size: 23px;
+    margin-bottom: 12px;
+}
+
+.detalle-card p {
+    font-size: 16px;
+    line-height: 1.7;
+    opacity: 0.9;
+}
+
+.detalle-especial {
+    max-width: 700px;
+    margin: 40px auto 0;
+    padding: 35px 30px;
+
+    border-radius: 25px;
+
+    background: rgba(255, 255, 255, 0.10);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+
+    backdrop-filter: blur(12px);
+
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.30);
+
+    animation: aparecer 2s ease;
+}
+
+.detalle-especial > span {
+    display: block;
+    font-size: 45px;
+    margin-bottom: 15px;
+}
+
+.detalle-especial p {
+    font-size: 18px;
+    line-height: 1.7;
+    opacity: 0.9;
+    margin-bottom: 12px;
+}
+
+.detalle-especial h2 {
+    font-size: 28px;
+}
+
+.boton-detalles-final {
+    display: inline-block;
+    margin-top: 40px;
+}
+
+/* Celulares */
+
+@media (max-width: 700px) {
+
+    .detalles-contenedor {
+        padding-top: 90px;
+    }
+
+    .detalles-contenedor h1 {
+        font-size: 36px;
+    }
+
+    .texto-detalles {
+        font-size: 17px;
+    }
+
+    .detalles-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .detalle-card {
+        min-height: 200px;
+    }
+
+    .detalle-especial {
+        padding: 28px 20px;
+    }
+
+    .detalle-especial h2 {
+        font-size: 23px;
+    }
+}

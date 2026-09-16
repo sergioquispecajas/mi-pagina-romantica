@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Nuestra historia ❤️</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='estilo.css') }}">
+</head>
+
+<body class="pagina-contador">
+
+    <div class="fondo-corazones">
+        <span>❤️</span>
+        <span>💕</span>
+        <span>💗</span>
+        <span>💖</span>
+        <span>💞</span>
+        <span>❤️</span>
+    </div>
+
+    <main class="contador-contenedor">
+
+        <a href="/" class="volver">← Volver</a>
+
+        <p class="subtitulo-contador">
+            ✨ Cada segundo cuenta ✨
+        </p>
+
+        <h1>Nuestra historia ❤️</h1>
+
+        <p class="texto-contador">
+            Desde aquel 4 de mayo de 2026,
+            nuestras historias comenzaron a cruzarse...
+        </p>
+
+        <section class="contador">
+
+            <div class="tiempo">
+                <span id="dias">0</span>
+                <small>Días</small>
+            </div>
+
+            <div class="separador">:</div>
+
+            <div class="tiempo">
+                <span id="horas">00</span>
+                <small>Horas</small>
+            </div>
+
+            <div class="separador">:</div>
+
+            <div class="tiempo">
+                <span id="minutos">00</span>
+                <small>Minutos</small>
+            </div>
+
+            <div class="separador">:</div>
+
+            <div class="tiempo">
+                <span id="segundos">00</span>
+                <small>Segundos</small>
+            </div>
+
+        </section>
+
+        <p class="frase-contador">
+            Todavía nos quedan muchísimos momentos por vivir juntos. ❤️
+        </p>
+
+    </main>
+
+    <script>
+
+        /*
+         * Fecha en que comenzó nuestra historia:
+         * 4 de mayo de 2026 a las 00:00
+         *
+         * En JavaScript:
+         * enero = 0
+         * febrero = 1
+         * marzo = 2
+         * abril = 3
+         * mayo = 4
+         */
+
+        const fechaInicio = new Date(2026, 4, 4, 0, 0);
+
+        function actualizarContador() {
+
+            const ahora = new Date();
+
+            const diferencia = ahora - fechaInicio;
+
+            if (diferencia < 0) {
+                document.getElementById("dias").textContent = "0";
+                document.getElementById("horas").textContent = "00";
+                document.getElementById("minutos").textContent = "00";
+                document.getElementById("segundos").textContent = "00";
+
+                return;
+            }
+
+            const segundosTotales = Math.floor(diferencia / 1000);
+
+            const dias = Math.floor(
+                segundosTotales / 86400
+            );
+
+            const horas = Math.floor(
+                (segundosTotales % 86400) / 3600
+            );
+
+            const minutos = Math.floor(
+                (segundosTotales % 3600) / 60
+            );
+
+            const segundos = segundosTotales % 60;
+
+            document.getElementById("dias").textContent = dias;
+
+            document.getElementById("horas").textContent =
+                String(horas).padStart(2, "0");
+
+            document.getElementById("minutos").textContent =
+                String(minutos).padStart(2, "0");
+
+            document.getElementById("segundos").textContent =
+                String(segundos).padStart(2, "0");
+        }
+
+        actualizarContador();
+
+        setInterval(actualizarContador, 1000);
+
+    </script>
+
+</body>
+</html>

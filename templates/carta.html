@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Una carta para ti 💌</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='estilo.css') }}">
+</head>
+
+<body class="pagina-carta">
+
+    <div class="fondo-corazones">
+        <span>❤️</span>
+        <span>💕</span>
+        <span>💗</span>
+        <span>💖</span>
+        <span>💞</span>
+        <span>❤️</span>
+    </div>
+
+    <main class="carta-contenedor">
+
+        <a href="/" class="volver">← Volver</a>
+
+        <p class="subtitulo-carta">
+            ✨ Hay algo que quiero decirte ✨
+        </p>
+
+        <h1>Una carta para ti 💌</h1>
+
+        <div class="sobre" id="sobre">
+
+            <div class="sobre-tapa"></div>
+
+            <div class="carta-interior">
+
+                <h2>Para ti ❤️</h2>
+
+                <p>
+                    Quizás no siempre encuentre las palabras exactas
+                    para decirte todo lo que siento, pero quería dejar
+                    algo escrito para que puedas leerlo cuando quieras.
+                </p>
+
+                <p>
+                    Me gusta saber que, entre tantas personas,
+                    nuestras historias llegaron a encontrarse.
+                    Cada conversación, cada mensaje y cada pequeño
+                    momento compartido tiene un significado especial
+                    para mí.
+                </p>
+
+                <p>
+                    No necesito grandes cosas para sentir que alguien
+                    puede convertirse en una persona importante.
+                    A veces basta una conversación, una sonrisa,
+                    una palabra bonita o simplemente saber que esa
+                    persona está ahí.
+                </p>
+
+                <p>
+                    Y tú te has convertido en alguien muy especial
+                    para mí. ❤️
+                </p>
+
+                <p class="firma">
+                    Con mucho cariño,<br>
+                    alguien que piensa mucho en ti 💕
+                </p>
+
+            </div>
+
+        </div>
+
+        <button class="boton-carta" onclick="abrirCarta()">
+            💌 Abrir mi carta
+        </button>
+
+    </main>
+
+    <script>
+
+        function abrirCarta() {
+
+            const sobre = document.getElementById("sobre");
+
+            sobre.classList.toggle("abierta");
+
+            const boton = document.querySelector(".boton-carta");
+
+            if (sobre.classList.contains("abierta")) {
+                boton.innerHTML = "💖 Cerrar carta";
+            } else {
+                boton.innerHTML = "💌 Abrir mi carta";
+            }
+
+        }
+
+    </script>
+
+</body>
+</html>

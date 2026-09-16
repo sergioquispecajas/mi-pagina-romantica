@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Para ti ❤️</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='estilo.css') }}">
+</head>
+
+<body class="pagina-final">
+
+    <div class="fondo-final">
+        <span>❤️</span>
+        <span>💕</span>
+        <span>💗</span>
+        <span>💖</span>
+        <span>✨</span>
+        <span>❤️</span>
+        <span>💞</span>
+    </div>
+
+    <main class="final-contenedor">
+
+        <p class="final-pequeno">
+            ✨ Y llegamos al final... ✨
+        </p>
+
+        <h1>
+            Pero esto no termina aquí ❤️
+        </h1>
+
+        <div class="linea-corazon">
+            ♡ ───────── ❤️ ───────── ♡
+        </div>
+
+        <p class="final-mensaje">
+            Hice todo esto porque quería recordarte
+            lo especial que eres para mí.
+        </p>
+
+        <p class="final-mensaje">
+            Aunque todavía nos falten muchos momentos
+            por vivir, espero que este sea solamente
+            el comienzo de algo muy bonito. 💕
+        </p>
+
+        <div class="final-frase">
+            "Gracias por existir y por formar parte de mi vida." ❤️
+        </div>
+
+        <button class="boton-final" onclick="mostrarMensaje()">
+            Abrir mi corazón 💌
+        </button>
+
+        <div id="mensaje-final" class="mensaje-oculto">
+            <p>
+                Si llegaste hasta aquí...
+            </p>
+
+            <h2>
+                quiero que sepas que eres muy especial para mí. ❤️
+            </h2>
+
+            <p>
+                Y pase lo que pase, siempre guardaré
+                con cariño cada momento, cada sonrisa
+                y cada recuerdo. 💗
+            </p>
+
+            <div class="corazon-grande">
+                ❤️
+            </div>
+
+            <p class="final-te-quiero">
+                Esto es para ti. ✨
+            </p>
+        </div>
+
+    </main>
+
+    <script>
+        function mostrarMensaje() {
+
+            const mensaje = document.getElementById("mensaje-final");
+            const boton = document.querySelector(".boton-final");
+
+            mensaje.classList.add("mostrar");
+
+            boton.style.display = "none";
+        }
+    </script>
+
+</body>
+</html>

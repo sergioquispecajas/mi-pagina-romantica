@@ -1,21 +1,68 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-    <title>Nuestras fotos 💞</title>
-</head>
-<body>
-    <h1>Un rincón lleno de amor ❤️ 💞</h1>
-    <nav>
-        <a href="/">Inicio</a> |
-        <a href="/fotos">Fotos</a> |
-        <a href="/frases">Frases</a>
-    </nav>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <div class="galeria">
-        <img src="{{ url_for('static', filename='imagenes/foto01.jpg') }}" width="250">
-        <img src="{{ url_for('static', filename='imagenes/foto02.jpg') }}" width="250">
-        <img src="{{ url_for('static', filename='imagenes/foto03.jpg') }}" width="250">
+    <title>Nuestros momentos ❤️</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='estilo.css') }}">
+</head>
+
+<body class="pagina-fotos">
+
+    <div class="fondo-corazones">
+        <span>❤️</span>
+        <span>💕</span>
+        <span>💗</span>
+        <span>💖</span>
+        <span>❤️</span>
+        <span>💞</span>
     </div>
+
+    <main class="galeria-contenedor">
+
+        <a href="/" class="volver">← Volver</a>
+
+        <p class="subtitulo-fotos">✨ Un pequeño espacio para ti ✨</p>
+
+        <h1>Mis fotos favoritas ❤️</h1>
+
+        <p class="texto-fotos">
+            Todavía nos quedan muchas fotos por crear juntos,
+            pero mientras tanto, quería guardar aquí algunas
+            cosas bonitas que me hacen pensar en ti. ❤️
+        </p>
+
+        <section class="galeria">
+
+            <div class="foto-card">
+                <img src="{{ url_for('static', filename='imagenes/foto01.jpg') }}" alt="Foto especial">
+                <div class="foto-texto">
+                    <h2>Un momento especial 💕</h2>
+                    <p>Porque hay imágenes que simplemente alegran el corazón.</p>
+                </div>
+            </div>
+
+            <div class="foto-card">
+                <img src="{{ url_for('static', filename='imagenes/foto02.jpg') }}" alt="Foto especial">
+                <div class="foto-texto">
+                    <h2>Para ti 💗</h2>
+                    <p>Una pequeña parte de todo lo bonito que quiero compartir contigo.</p>
+                </div>
+            </div>
+
+            <div class="foto-card">
+                <img src="{{ url_for('static', filename='imagenes/foto03.jpg') }}" alt="Foto especial">
+                <div class="foto-texto">
+                    <h2>Siempre especial 💖</h2>
+                    <p>Porque algunas personas hacen que todo se sienta diferente.</p>
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+
 </body>
 </html>
-
